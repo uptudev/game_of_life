@@ -13,8 +13,6 @@ debug = ["bevy-inspector-egui"]
 nalgebra-glm = "0.18.0"
 # bevy = "0.9.1" #TODO Uncomment before building for static libraries 
 bevy = { version = "0.9.1", features = ["dynamic"] } #TODO Comment before building
-rayon = "1.6.1"
-rand = "0.8.5"
 
 game_libs = { path = "game_libs" }
 
