@@ -1,10 +1,13 @@
 use bevy::{prelude::*, DefaultPlugins};
+#[allow(unused_imports)]
+use game_libs::{GameOfLife, resources::MapOptions};
 
 #[cfg(feature = "debug")]
-use bevy_inspector_egui::WorldInspectorPlugin;
+use bevy_inspector_egui::quick::WorldInspectorPlugin;
 
-#[derive(Resource)]
-struct WindowDescriptor {
+#[derive(Resource, Default, Clone)]
+#[allow(dead_code)]
+pub struct WindowDescriptor {
     title: String,
     width: usize,
     height: usize,
@@ -17,15 +20,19 @@ fn main() {
         title: "Mine Sweeper!".to_string(),
         width: 700,
         height: 800,
-    })
-    // Bevy default plugins
-    .add_plugins(DefaultPlugins);
+        ..Default::default()
+    }).insert_resource(MapOptions {
+            map_size: (100, 100),
+            alive_count: 5000,
+            tile_padding: 3.0,
+            ..Default::default()
+        })
+        .add_plugins(DefaultPlugins)
+        .add_system(bevy::window::close_on_esc)
+        .add_plugin(GameOfLife);
     #[cfg(feature = "debug")]
-    // Debug hierarchy inspector
-    app.add_plugin(WorldInspectorPlugin::new());
-    // Startup system (cameras)
+    app.add_plugin(WorldInspectorPlugin);
     app.add_startup_system(camera_setup);
-    // Run the app
     app.run();
 }
 

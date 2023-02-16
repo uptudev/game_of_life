@@ -1,10 +1,11 @@
+use bevy::prelude::Resource;
 // tile.rs
 #[cfg(feature = "debug")]
 use colored::Colorize;
 
 /// Enum describing a single tile
-#[derive(Debug, Copy, Clone, Eq, PartialEq)]
-pub enum State{
+#[derive(Resource, Debug, Copy, Clone, Eq, PartialEq)]
+pub enum Tile{
     /// Is alive
     Alive,
     /// Dead
