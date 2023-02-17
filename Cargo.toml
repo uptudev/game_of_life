@@ -11,10 +11,8 @@ debug = ["bevy-inspector-egui"]
 
 [dependencies]
 nalgebra-glm = "0.18.0"
-# bevy = "0.9.1" #TODO Uncomment before building for static libraries 
-bevy = { version = "0.9.1", features = ["dynamic"] } #TODO Comment before building
-
-game_libs = { path = "game_libs", features = ["debug"]}
+# bevy = "0.9.1" #! Uncomment before building for static libraries 
+bevy = { version = "0.9.1", features = ["dynamic"] } #!Comment before building
 
 bevy-inspector-egui = { version = "0.17.0", optional = true }
 
@@ -26,8 +24,3 @@ opt-level = 1
 # Enable high optimizations for dependencies (incl. Bevy), but not for our code:
 [profile.dev.package."*"]
 opt-level = 3
-
-[workspace]
-members = [
-    "game_libs"
-]
