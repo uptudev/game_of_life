@@ -1,8 +1,6 @@
 use bevy::{prelude::*, DefaultPlugins};
 
-mod compute_shader;
-
-use compute_shader::{GameOfLifeComputePlugin, setup};
+use shaderlibs::{GameOfLifeComputePlugin, setup};
 
 #[cfg(feature = "debug")]
 use bevy_inspector_egui::quick::WorldInspectorPlugin;

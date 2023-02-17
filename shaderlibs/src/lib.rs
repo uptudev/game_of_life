@@ -120,9 +120,7 @@ impl FromWorld for GameOfLifePipeline {
                         count: None,
                     }],
                 });
-        let shader = world
-            .resource::<AssetServer>()
-            .load("shaders/game_of_life.wgsl");
+        let shader = world.resource_mut::<AssetServer>().load("shaders/game_of_life.wgsl");
         let mut pipeline_cache = world.resource_mut::<PipelineCache>();
         let init_pipeline = pipeline_cache.queue_compute_pipeline(ComputePipelineDescriptor {
             label: None,
