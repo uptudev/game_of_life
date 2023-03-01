@@ -10,8 +10,8 @@ default = []
 debug = ["bevy-inspector-egui"]
 
 [dependencies]
-bevy = "0.9.1" #! Uncomment before building for static libraries 
-# bevy = { version = "0.9.1", features = ["dynamic"] } #!Comment before building
+#bevy = "0.9.1" #! Uncomment before building for static libraries 
+bevy = { version = "0.9.1", features = ["dynamic"] } #!Comment before building
 
 shaderlibs = {path = "shaderlibs", features = ["debug"]}
 
